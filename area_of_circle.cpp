@@ -12,44 +12,71 @@
 
 using namespace std;
 
-float calculateRadius(float x1 = 0, float y1 = 0, float x2 = 0, float y2 = 0)
+// takes all the variables as positional arguments from main function
+float calculateRadius(float x1, float y1, float x2, float y2)
 {
-    if (x1 == 0 && y1 == 0 && x2 == 0 && y2 == 0)
-    {
-        return 0;
-    }
-    else
-    {
-        return sqrt((pow((x2 - x1), 2)) + (pow((y2 - y1), 2)));
-    }
-}
-
-float calculateArea(float radius)
-{
-    return (M_PI * (pow(radius, 2)));
+    // utilizes the cmath module to calculate the radius
+    return sqrt((pow((x2 - x1), 2)) + (pow((y2 - y1), 2)));
+    // and then returns it
 }
 
 float calculateCircumference(float radius)
 {
+    // the cmath module has a pre-defined variable called M_PI which is
+    // the precise form of pi
     return (2 * M_PI * radius);
+    // returns the Area.
 }
 
+float calculateArea(float radius)
+{
+    // the cmath module has a pre-defined variable called M_PI which is
+    // the precise form of pi
+    return (M_PI * (pow(radius, 2)));
+    // returns the Area.
+}
 int main()
 {
+
+    // define the variables in the main() function
     float x1, x2, y1, y2;
+
+    // single character
     char comma;
 
     cout << "THIS APP CALCULATES EVERYTHING ABOUT THE CIRCLE BASED ON 2 POINTS";
-    cout << "\nenter the 1st point seperated by a [comma]: ";
+
+    // take input of the first point
+    cout << "\n\nenter the 1st point seperated by a comma [,]: ";
     cin >> x1 >> comma >> y1;
-    cout << "1st Point: " << x1 << "," << y1;
-    cout << "\n\nenter the 2nd point: ";
+    cout << setw(16) << "1st Point: "
+         << setw(25) << x1 << "," << y1;
+
+    // take input of the second point
+    cout << "\n\nenter the 2nd point seperated by a comma [,]: ";
     cin >> x2 >> comma >> y2;
-    cout << "2nt Point: " << x2 << "," << y2 << endl;
+    cout << setw(16) << "2nt Point: "
+         << setw(25) << x2 << "," << y2 << endl;
+
+    // value returned from the calculateRadius gets assigned to radius
     float radius = calculateRadius(x1, y1, x2, y2);
-    cout << "\nRadius: " << fixed << setprecision(2) << radius << endl;
-    cout << "Area: " << fixed << setprecision(2) << calculateArea(radius)
-         << endl;
-    cout << "Cirucumference: " << fixed << setprecision(2)
+
+    // formatting the output
+    cout << endl
+         << setw(16) << "Radius: "
+         << setw(28) << fixed << setprecision(2)
+         << radius << endl;
+
+    cout << setw(16) << "Cirucumference: "
+         << setw(28) << fixed << setprecision(2)
          << calculateCircumference(radius) << endl;
+
+    cout << setw(16) << "Area: "
+         << setw(28) << fixed << setprecision(2)
+         << calculateArea(radius)
+         << endl;
+
+    // this is for my compiler. it is not necessary.
+    cout << endl
+         << endl;
 }
