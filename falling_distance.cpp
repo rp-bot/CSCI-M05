@@ -60,7 +60,7 @@ int main() // start main
          << fallingDistance(time); // output distance
     cout << " m\n";
 
-    // this is for my compiler. not necessary
+    // this is for my compiler. so it is not necessary
     cout << endl
          << endl;
 }
