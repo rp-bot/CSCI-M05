@@ -18,7 +18,7 @@ float fallingDistance(float t) // defined a float function because I need
 {
     if (t == 0)
     {
-        return 0; // saving processing time by bruteforcing obvious answers
+        return 0; // saving processing time by brute forcing obvious answers
                   // anything multiplied by 0 = 0
     }
     else
